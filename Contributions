@@ -1,0 +1,26 @@
+Responsibilities: 
+Collected antimicrobial peptide data from the DBAASP database using its API.
+Extracted peptide sequences, MIC measurements and bacterial target information.
+Cleaned the dataset by removing missing and invalid sequences.
+Standardised MIC measurements into µM and calculated pMIC values.
+Performed exploratory data analysis on MIC distributions, sequence lengths and unique peptides.
+Standardised bacterial names to identify the seven ESKAPEE pathogen groups.
+Extracted bacterial species, strain names, Gram classification and target-level information.
+Installed and configured CD-HIT for peptide sequence clustering.
+Clustered similar peptide sequences using an 80% sequence identity threshold.
+Assigned cluster IDs and handled short sequences and singleton groups.
+Implemented cluster-based Train-Validation-Test splitting using GroupShuffleSplit.
+Verified zero sequence and cluster overlap between datasets.
+Extracted Amino Acid Composition (AAC) features (20 dimensions).
+Extracted Dipeptide Composition (DPC) features (400 dimensions).
+Calculated 8 physicochemical properties using Biopython's ProtParam module.
+Installed and configured the pretrained ESM-2 protein language model.
+Generated 320-dimensional peptide embeddings using mean pooling.
+Saved and integrated embeddings into the training, validation and testing datasets.
+Developed baseline regression models using Random Forest, XGBoost and CatBoost.
+Performed CatBoost hyperparameter tuning.
+Conducted feature ablation experiments to compare different feature combinations.
+Investigated target leakage and identified problematic input columns.
+Reconstructed leakage-free feature matrices.
+Evaluated model performance using MAE, RMSE and R².
+Performed feature importance and residual analysis.
