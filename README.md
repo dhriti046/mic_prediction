@@ -33,16 +33,16 @@ During the initial API test, DBAASP reported 25,542 peptide records. This was th
 <img width="1660" height="4520" alt="mermaid-diagram (1)" src="https://github.com/user-attachments/assets/3cd5bf79-ef07-4f77-9bef-191304a795ec" />
 
 
-Architecture explanation
-Data collection: Collect peptide sequences, MIC values and bacterial targets.
-Preprocessing: Clean data and standardise MIC into pMIC.
-Target processing: Identify bacterial species and strains.
-Sequence clustering: Group similar peptides to prevent data leakage.
-Data splitting: Create training, validation and testing sets.
-Feature extraction:	Generate AAC, DPC, physicochemical and ESM-2 features.
-Feature integration:	Combine 748 sequence-derived features.
-Leakage audit:	Remove columns that reveal the target value.
-Model development: Train Random Forest, XGBoost and CatBoost.
-Optimisation:	Tune CatBoost and compare feature combinations.
-Prediction:	Predict antimicrobial activity using pMIC.
-Evaluation: Measure performance using MAE, RMSE and R².
+## Architecture explanation
+### Data collection: Collect peptide sequences, MIC values and bacterial targets.
+### Preprocessing: Clean data and standardise MIC into pMIC.
+### Target processing: Identify bacterial species and strains.
+### Sequence clustering: Group similar peptides to prevent data leakage.
+### Data splitting: Create training, validation and testing sets.
+### Feature extraction:	Generate AAC, DPC, physicochemical and ESM-2 features.
+### Feature integration:	Combine 748 sequence-derived features.
+### Leakage audit:	Remove columns that reveal the target value.
+### Model development: Train Random Forest, XGBoost and CatBoost.
+### Optimisation:	Tune CatBoost and compare feature combinations.
+### Prediction:	Predict antimicrobial activity using pMIC.
+### Evaluation: Measure performance using MAE, RMSE and R².
