@@ -41,8 +41,9 @@ During the initial API test, DBAASP reported 25,542 peptide records. This was th
 ### Data splitting: Create training, validation and testing sets.
 ### Feature extraction:	Generate AAC, DPC, physicochemical and ESM-2 features.
 ### Feature integration:	Combine 748 sequence-derived features.
-### Leakage audit:	Remove columns that reveal the target value.
-### Model development: Train Random Forest, XGBoost and CatBoost.
-### Optimisation:	Tune CatBoost and compare feature combinations.
-### Prediction:	Predict antimicrobial activity using pMIC.
-### Evaluation: Measure performance using MAE, RMSE and R².
+### Leakage audit: Remove columns that reveal the target value.
+### Model development: Train Random Forest, XGBoost, CatBoost, and PyTorch ESM-2 Neural Regression Head.
+### Strain-aware modeling: Implement dual-branch architecture $\hat{y}=f(z_{\text{peptide}}, z_{\text{strain}})$ with learned bacterial embeddings.
+### Optimisation: Tune CatBoost, train with GPU acceleration, and compare feature combinations.
+### Prediction: Predict antimicrobial activity using pMIC and convert to $\mu\text{M}$ with $2\times$ confidence boundaries.
+### Evaluation: Measure performance using MAE, RMSE, R², Pearson $r$, Spearman $\rho$, $2\times/4\times$ fold error, and per-pathogen ESKAPEE breakdown.
