@@ -4,7 +4,7 @@
 - Mount Google Drive once and pin a single `PROJECT_DIR`; added a compute-only-if-missing cache convention used for every heavy artifact.
 - GPU-aware throughout: `DEVICE = cuda if available else cpu`, with a fixed seed (`set_seed`) applied before every model.
 - Load cached cluster-disjoint 75/15/10 split (`phase2_{train,validation,test}.csv`) instead of re-running DBAASP collection / CD-HIT clustering.
-- ESM-2 (`esm2_t6_8M`, 320-d mean-pooled) peptide embeddings cached to Drive as `.npz`; computed only for missing sequences.
+- ESM-2 peptide embeddings cached to Drive as `.npz`; computed only for missing sequences. Backbone is a single switch `ESM_BACKBONE` ("8M" → 320-d default, "150M" → 640-d) via an `ESM_REGISTRY`; each backbone caches to its own file so both are kept and A/B-able, and all downstream heads read `ESM_DIM` dynamically. Extraction is resume-safe: it checkpoints the `.npz` atomically every ~320 sequences, so a dropped kernel (common on long 150M runs) resumes from the last checkpoint instead of recomputing everything.
 - Mapped each unique target species to a 2-sentence biological description (Gram stain, cell wall, resistance), encoded once with PubMedBERT (mean-pooled, `torch.no_grad`), cached as `species_pubmedbert_emb.pt`.
 - Added categorical taxonomy features (`gram_stain`, `genus`, `family`) via one-hot encoding fit on train only; no GNNs.
 - Implemented a single shared MLP head (Huber loss, same optimizer/schedule/seed/split) driving a 5-way ablation: Peptide-only, +Strain ID (learned embedding), +Species Description, +Taxonomy, +Shuffled-Description control.
