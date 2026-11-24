@@ -69,7 +69,7 @@ A separate **30% identity** benchmark was added using MMseqs2 because the CD-HIT
 
 ## 9. Leakage-Free Train/Validation/Test Splitting
 
-The standard split assigns whole 80%-identity clusters to train, validation, or test. The audit checks train/validation, train/test, and validation/test cluster intersections and raises an error if any overlap is found.
+The standard split targets 75% train, 15% validation, and 10% test by whole 80%-identity clusters. The audit checks all pairwise cluster intersections and raises an error on overlap. Record-level proportions can differ because cluster sizes vary; rerun the split after the current MIC, length, and aggregation filters to refresh counts.
 
 The latest displayed record counts after the single-residue DPC filter are **17,976 train**, **3,271 validation**, and **3,380 test** records. The audit reports zero shared clusters across partitions.
 
